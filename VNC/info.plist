@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>me.tuhao.vnc2</string>
+	<key>connections</key>
+	<dict>
+		<key>D56383E8-136C-4635-8073-3B14D4541623</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>53731CA6-ED42-407F-BAA4-1E1F84F9D482</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Melvin Tu</string>
+	<key>description</key>
+	<string>VNC</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>VNC</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>vnc_app="/Applications/VNC Viewer.app"
+
+"${vnc_app}/Contents/MacOS/vncviewer" WarnUnencrypted=0 {query} &amp;</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>53731CA6-ED42-407F-BAA4-1E1F84F9D482</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>vnc</string>
+				<key>runningsubtext</key>
+				<string>Please wait, loading VNC</string>
+				<key>script</key>
+				<string># require key exchange on ssh login
+
+user=ENV['USER']
+
+hosts=[]
+hosts &lt;&lt; "sample.host.com"
+
+puts "&lt;items&gt;"
+
+hosts.each do |host|
+    ports=`ssh #{user}@#{host} ps ux  2&gt;/dev/null| grep Xvnc | grep '^#{user}' | awk '{print $12}' | sed 's=:==g' | sort | xargs echo`
+
+    ports.split(" ").each { |port|
+        id = "#{host}:#{port}"
+        puts "&lt;item uid='#{id}' arg='#{id}' autocomplete='#{id}' valid='YES'&gt;
+                &lt;title&gt;#{id}&lt;/title&gt;
+                &lt;icon&gt;icon.png&lt;/icon&gt;
+              &lt;/item&gt;"
+    }
+end
+
+puts "&lt;/items&gt;"
+
+</string>
+				<key>subtext</key>
+				<string>VNC</string>
+				<key>title</key>
+				<string>VNC</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D56383E8-136C-4635-8073-3B14D4541623</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>53731CA6-ED42-407F-BAA4-1E1F84F9D482</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>D56383E8-136C-4635-8073-3B14D4541623</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>www.tuhao.me</string>
+</dict>
+</plist>
