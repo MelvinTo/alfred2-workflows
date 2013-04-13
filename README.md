@@ -27,7 +27,7 @@ some workflows for alfred 2
 
 Note: VNC non-encryption warning is disabled by default.
 
-## 锵锵三人行
+## 锵锵三人行 workflow
 [\[Download Link\]][3]
 
 ![Screenshot](qqsrx/screenshot.png "Screenshot")
