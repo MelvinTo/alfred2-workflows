@@ -2,12 +2,15 @@
 
 some workflows for alfred 2
 
-## VNC workflow, loading all active vnc sessions in your host, press "enter" to login that vnc
+## VNC workflow, loading all active vnc sessions in your remote host, press "enter" to login that vnc
 [\[Download Link\]][1]
+
+### Dependancy
+0. VNC Viewer. If not installed yet, click [here][2] to go to RealVNC VNC Viewer download page
+1. SSH passwordless key exchange setup between your mac and the remote host.
 
 ###To use this workflow:
 
-0. Assume you have installed VNC Viewer, if not, click [here][2] to go to RealVNC VNC Viewer download page
 1. Install the workflow
 2. Open the "Script Filter"
 3. change **sample.host.com** to your host
