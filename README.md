@@ -39,6 +39,7 @@ Note: VNC non-encryption warning is disabled by default.
 ### Dependancy
 0. Download youtube_it from [here][4]
 1. sudo gem install youtube_it_2.1.13.gem
+2. sudo gem install xml-simple
 
 Note: the youtube_it gem in official rubygems repository doesn't provide the latest functionality I need, so i built one by myself by compiling the latest source code from [youtube_it github repository][5]
 
