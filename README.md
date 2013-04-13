@@ -5,6 +5,8 @@ some workflows for alfred 2
 ## VNC workflow
 [\[Download Link\]][1]
 
+![Screenshot](VNC/screenshot.png "Screenshot")
+
 ### Feature
 * Loading all active vnc sessions in your remote host, press "enter" to login that vnc
 
