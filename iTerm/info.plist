@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>me.tuhao.iterm</string>
+	<key>connections</key>
+	<dict>
+		<key>0E7E4E70-796B-4C87-B4B4-A64354DC22F4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2C29D752-C243-4A42-B2CA-EEF36CB3D479</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Melvin Tu</string>
+	<key>description</key>
+	<string>Open iterm profiles</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>iTerm</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>(* 
+ * New-iTerm-Window.scpt
+ * 
+ * Intended for use with QuickSilver
+ *  I mapped option-y to running this script to create
+ *  a new iTerm window on the current workspace
+ *
+ * Based on much Googling - very little "original" code here
+ *   Comments/Suggestions to brad.lhotsky@gmail.com
+ *)if isAppRunning("iTerm") then	tell application "iTerm"		set myterm to (make new terminal)		tell myterm			activate current session			launch session "{query}"		end tell		activate	end tellelse	activate application "iTerm"end if(* Code from Dweller on
+ *  http://codesnippets.joyent.com/posts/show/1124
+ *)on isAppRunning(appName)	tell application "System Events" to (name of processes) contains appNameend isAppRunning</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>2C29D752-C243-4A42-B2CA-EEF36CB3D479</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>iterm</string>
+				<key>runningsubtext</key>
+				<string>Please wait</string>
+				<key>script</key>
+				<string>iterm_profiles = ["local", "ec2"]
+
+puts "&lt;items&gt;"
+iterm_profiles.grep(/{query}/).each { |profile|
+  puts "&lt;item uid='#{profile}' arg='#{profile}' valid='YES' autocomplete='#{profile}'&gt;"
+  puts "&lt;title&gt;iTerm Profile: #{profile}&lt;/title&gt;"
+  puts "&lt;icon&gt;icon.png&lt;/icon&gt;"
+  puts "&lt;/item&gt;"
+}
+
+puts "&lt;/items&gt;"
+</string>
+				<key>subtext</key>
+				<string>Iterm profiles</string>
+				<key>title</key>
+				<string>Iterm profiles</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>0E7E4E70-796B-4C87-B4B4-A64354DC22F4</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>0E7E4E70-796B-4C87-B4B4-A64354DC22F4</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>2C29D752-C243-4A42-B2CA-EEF36CB3D479</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>www.tuhao.me</string>
+</dict>
+</plist>

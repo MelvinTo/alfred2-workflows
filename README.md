@@ -30,6 +30,7 @@ Note: VNC non-encryption warning is disabled by default.
 ## 锵锵三人行 workflow
 [\[Download Link\]][3]
 
+
 ![Screenshot](qqsrx/screenshot.png "Screenshot")
 
 ### Feature
@@ -50,6 +51,22 @@ Note: the youtube_it gem in official rubygems repository doesn't provide the lat
 ### Usage
 5. Type "qqsrx" in alfred window
 
+## iTerm profile workflow
+[\[Download Link\]][7]
+
+![Screenshot](iTerm/screenshot.png "Screenshot")
+
+### Feature
+* List and open iTerm profiles (profile names are manually written in this workflow, since I don't know how to dynamically load from iTerm)
+
+### Installation
+
+1. Download and double click the alfredworkflow file
+
+### Usage
+5. Type "iterm" in alfred window
+
+**Note**: The apple script is from reyjrar's [gist][8]
 
 ## Credits
 Created by @[melvinto](https://twitter.com/melvinto 'Contact me on Twitter') under [MIT LICENSE](http://rem.mit-license.org/) 
@@ -60,5 +77,7 @@ Created by @[melvinto](https://twitter.com/melvinto 'Contact me on Twitter') und
 [4]: https://github.com/MelvinTo/alfred2-workflows/raw/master/qqsrx/3rdparty/youtube_it-2.1.13.gem
 [5]: https://github.com/kylejginavan/youtube_it
 [6]: http://www.youtube.com/playlist?list=PLVaNxKWod1KWJkjxy6HeFck6KEUsoXf0_
+[7]: https://github.com/MelvinTo/alfred2-workflows/raw/master/Downloads/iTerm.alfredworkflow
+[8]: https://gist.github.com/reyjrar/1769355
 
 
