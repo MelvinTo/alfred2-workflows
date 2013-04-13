@@ -27,8 +27,37 @@ some workflows for alfred 2
 
 Note: VNC non-encryption warning is disabled by default.
 
+## 锵锵三人行
+[\[Download Link\]][3]
+
+![Screenshot](qqsrx/screenshot.png "Screenshot")
+
+### Feature
+* 列出youtube上最新的几集锵锵三人行视频
+* 使用的是OnlyyouHappycamp提供是[锵锵三人行专辑][6]，在此特别感谢OnlyyouHappycamp。
+
+### Dependancy
+0. Download youtube_it from [here][4]
+1. sudo gem install youtube_it_2.1.13.gem
+
+Note: the youtube_it gem in official rubygems repository doesn't provide the latest functionality I need, so i built one by myself by compiling the latest source code from [youtube_it github repository][5]
+
+### Installation
+
+1. Download and double click the alfredworkflow file
+
+### Usage
+5. Type "qqsrx" in alfred window
+
+
 ## Credits
 Created by @[melvinto](https://twitter.com/melvinto 'Contact me on Twitter') under [MIT LICENSE](http://rem.mit-license.org/) 
 
 [1]: https://github.com/MelvinTo/alfred2-workflows/raw/master/Downloads/VNC.alfredworkflow
 [2]: http://www.realvnc.com/download/viewer/
+[3]: https://github.com/MelvinTo/alfred2-workflows/raw/master/Downloads/qqsrx.alfredworkflow
+[4]: https://github.com/MelvinTo/alfred2-workflows/raw/master/qqsrx/3rdparty/youtube_it-2.1.13.gem
+[5]: https://github.com/kylejginavan/youtube_it
+[6]: http://www.youtube.com/playlist?list=PLVaNxKWod1KWJkjxy6HeFck6KEUsoXf0_
+
+

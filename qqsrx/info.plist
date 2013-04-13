@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>me.tuhao.qqsrx</string>
+	<key>connections</key>
+	<dict>
+		<key>FC1896FF-B56C-4D4C-9D85-185F8C1A753A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7BEFF522-437D-40D1-91F9-EB35E645D615</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Melvin Tu</string>
+	<key>description</key>
+	<string>显示最近几期锵锵三人行节目</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>锵锵三人行</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>qqsrx</string>
+				<key>runningsubtext</key>
+				<string>视频信息载入中</string>
+				<key>script</key>
+				<string>#!/usr/bin/ruby
+
+require 'rubygems'
+require 'youtube_it'
+require 'xmlsimple'
+
+playlist_id="PLVaNxKWod1KWJkjxy6HeFck6KEUsoXf0_"
+orderby="published"
+max_results=7
+
+client = YouTubeIt::Client.new
+playlist=client.playlist(playlist_id, {'orderby' =&gt; orderby, 'max-results'=&gt;max_results})
+
+video_array = []
+
+playlist.videos.each { |video|
+	title = video.title
+	url = video.player_url
+	upload_date = video.uploaded_at.localtime.strftime("%F")
+
+	video_hash = {"@uid" =&gt; title, 
+                      "@arg" =&gt; url,
+                      "@valid" =&gt; "YES", 
+                      "@autocomplete"=&gt;title,
+                      "title" =&gt; [{
+                        "content" =&gt; title
+                      }],
+                      "subtitle" =&gt; [{
+                      	"content" =&gt; "uploaded on #{upload_date}"
+                      	}],
+                      "icon" =&gt; [{
+                        "content" =&gt; "icon.png"
+                      }]
+                  }
+    video_array &lt;&lt; video_hash
+}
+
+doc = XmlSimple.xml_out({"item" =&gt; video_array}, {"AttrPrefix" =&gt; true,
+                                "RootName"   =&gt; "items", 
+                                "ContentKey" =&gt; "content"
+                       })
+
+puts doc</string>
+				<key>subtext</key>
+				<string>锵锵三人行</string>
+				<key>title</key>
+				<string>锵锵三人行</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>FC1896FF-B56C-4D4C-9D85-185F8C1A753A</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>7BEFF522-437D-40D1-91F9-EB35E645D615</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>7BEFF522-437D-40D1-91F9-EB35E645D615</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>FC1896FF-B56C-4D4C-9D85-185F8C1A753A</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>www.tuhao.me</string>
+</dict>
+</plist>
