@@ -37,7 +37,7 @@ Note: VNC non-encryption warning is disabled by default.
 * 使用的是OnlyyouHappycamp提供是[锵锵三人行专辑][6]，在此特别感谢OnlyyouHappycamp。
 
 ### Dependancy
-0. Download youtube_it from [here][4]
+0. Download youtube_it gem from [here][4]
 1. sudo gem install youtube_it_2.1.13.gem
 2. sudo gem install xml-simple
 
